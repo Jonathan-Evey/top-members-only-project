@@ -1,0 +1,56 @@
+// global color tokens
+$-clr-white: hsl(0 0% 100%);
+$-clr-black: hsl(0, 0%, 0%);
+
+$-clr-main-100: hsl(340, 20%, 94%);
+$-clr-main-200: hsl(338, 20%, 76%);
+$-clr-main-300: hsl(338, 19%, 65%);
+$-clr-main-400: hsl(338, 28%, 41%);
+$-clr-main-700: hsl(337, 28%, 18%);
+$-clr-main-800: hsl(337, 29%, 10%);
+
+$-clr-accent-vivid-tangerine: hsl(19, 83%, 74%);
+$-clr-accent-terra-cotta: hsl(8, 75%, 63%);
+$-clr-accent-terra-cotta-darkend-by-30: hsl(8, 44%, 44%);
+
+$-clr-accent-tea-green: hsl(78, 43%, 79%);
+$-clr-accent-light-slate-gray: hsl(169, 13%, 51%);
+$-clr-accent-light-slate-gray-darkend-by-30: hsl(169, 12%, 36%);
+
+
+$colors: (
+  "neutral": (
+    "100": $-clr-white,
+    "900": $-clr-black,
+  ),
+  "accent-orange": (
+    "300": $-clr-accent-vivid-tangerine,
+    "400": $-clr-accent-terra-cotta,
+    "500": $-clr-accent-terra-cotta-darkend-by-30,
+  ),
+  "accent-green": (
+    "300": $-clr-accent-tea-green,
+    "400": $-clr-accent-light-slate-gray,
+    "500": $-clr-accent-light-slate-gray-darkend-by-30,
+  ),
+  "primary": (
+    "100": $-clr-main-100,
+    "200": $-clr-main-200,
+    "300": $-clr-main-300,
+    "400": $-clr-main-400,
+    "700": $-clr-main-700,
+    "800": $-clr-main-800,
+  ),
+);
+
+// contextual color tokens
+$color-neutral-100: var(--neutral-100);
+$color-accent-300: var(--accent-300);
+$color-accent-400: var(--accent-400);
+$color-accent-500: var(--accent-500);
+$color-primary-100: var(--primary-100);
+$color-primary-200: var(--primary-200);
+$color-primary-300: var(--primary-300);
+$color-primary-400: var(--primary-400);
+$color-primary-700: var(--primary-700);
+$color-primary-800: var(--primary-800);
