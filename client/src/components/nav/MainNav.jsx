@@ -2,7 +2,6 @@ import { Link } from "react-router-dom"
 
 export const MainNav = () => {
   return (
-    <div>
       <nav>
         <ul>
           <li><Link to="/">Home</Link></li>
@@ -11,6 +10,5 @@ export const MainNav = () => {
           <li><Link to="/contact">Contact</Link></li>
         </ul>
       </nav>
-    </div>
   )
 }

@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { UserContext } from '../context/User'
 import axios from 'axios'
-import {setLocalStorage} from "../../lib/utils"
+import { setLocalStorage } from "../../lib/utils"
 
 export const LoginUser = (props) => {
+  const { user, setUser } = useContext(UserContext)
     const handelLoginEvent = (e) => {
         e.preventDefault()
         const formData = {
@@ -15,7 +17,7 @@ export const LoginUser = (props) => {
             data: formData,
         }).then(function (response) {
             console.log(response);
-            props.setUser(response.data.user)
+            setUser(response.data.user)
             return setLocalStorage(response)
           })
           .catch(function (error) {
@@ -28,7 +30,7 @@ export const LoginUser = (props) => {
         <input type="email" name="useremail" id="useremail" />
         <label htmlFor="password">Password:</label>
         <input type="password" name="password" id="password" />
-        <button type="submit" onClick={e => {handelLoginEvent(e)}}></button>
+        <button className='button' type="submit" onClick={e => {handelLoginEvent(e)}}>Submit</button>
     </form>
   )
 }
