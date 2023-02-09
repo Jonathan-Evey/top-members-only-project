@@ -3,9 +3,12 @@
 @use 'sizes' as *;
 
 $color-text-default: $color-primary-800;
+$color-text-light-default: $color-primary-100;
 $color-background-default: $color-primary-100;
-$color-text-interactive-default: $color-accent-400;
-$color-text-interactive-hover: $color-accent-500;
+$color-background-dark: $color-primary-800;
+$color-background-main-color: $color-primary-500;
+$color-text-interactive-default: $color-primary-600;
+$color-text-interactive-hover: $color-accent-orange-400;
 
 $letter-spacing-loose: 0.16em;
 
@@ -24,7 +27,9 @@ $body-font-size: $font-size-400;
 $body-line-height: 1.5;
 $body-font-weight: $font-weight-default;
 $body-text-color: $color-text-default;
+$body-text-color-dark-theme: $color-text-light-default;
 $body-background-color: $color-background-default;
+$body-background-color-dark-theme: $color-background-dark;
 
 // general
 $link-color: $color-text-interactive-default;
@@ -53,21 +58,26 @@ $container-max-width-wide: 75rem;
 
 // Buttons
 $button-font-family: $body-font-family;
-$button-font-size: $font-size-600;
+$button-font-size: $font-size-400;
 $button-font-weight: $font-weight-bold;
-$button-padding-default: $size-3 $size-9; // 12px 32px
+$button-padding-default: $size-2 $size-8; // 8px 32px
 $button-border: 0;
-$button-border-radius: $border-radius-1;
+$button-border-radius: $border-radius-2;
 
 $button-accent-color: $color-neutral-100;
-$button-accent-background: $color-accent-400;
+$button-accent-background: $color-accent-orange-400;
 $button-accent-color-hover: $color-neutral-100;
-$button-accent-background-hover: $color-accent-500;
+$button-accent-background-hover: $color-accent-orange-500;
 
 $button-primary-color: $color-neutral-100;
 $button-primary-background: $color-primary-700;
 $button-primary-color-hover: $color-neutral-100;
 $button-primary-background-hover: $color-primary-800;
+
+$button-light-color: $color-primary-800;
+$button-light-background: $color-primary-100;
+$button-light-color-hover: $color-primary-800;
+$button-light-background-hover: $color-primary-200;
 
 // cards
 $card-flow-spacing: $size-2;

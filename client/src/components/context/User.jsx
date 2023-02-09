@@ -28,9 +28,10 @@ export const UserProvider = (props) => {
         if (isLoggedIn()) {
             authUser()
           } else {
+            console.log("logout")
             logout()
           }
-    })
+    }, [])
   return (
     <UserContext.Provider value={{user, setUser}}>
         {props.children}

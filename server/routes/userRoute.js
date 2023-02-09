@@ -21,4 +21,8 @@ userRoute.post('/login', loginUser);
 
 userRoute.get('/auth', authMiddleware, authUser);
 
+// to do
+// userRoute.post('/theme', updateUserTheme);
+// userRoute.post('/picture', updateUserPicture);
+
 export default userRoute;

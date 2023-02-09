@@ -4,9 +4,18 @@ body {
   font-family: $body-font-family;
   font-weight: $body-font-weight;
   font-size: $body-font-size;
-  color: #111;
+  color: $body-text-color;
   line-height: $body-line-height;
   background-color: $body-background-color;
+  overflow-x: hidden;
+  &:has(div.dark-theme) {
+    background-color: $body-background-color-dark-theme;
+    color: $body-text-color-dark-theme;
+  }
+}
+
+button {
+  cursor: pointer;
 }
 
 a {
@@ -15,4 +24,5 @@ a {
 
 a:is(:hover, :focus) {
   color: $link-color-hover;
+  text-decoration: underline;
 }

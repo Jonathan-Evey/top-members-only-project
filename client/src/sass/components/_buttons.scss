@@ -2,10 +2,10 @@
 
 .button {
   display: inline-flex;
-  cursor: pointer;
   font-size: $button-font-size;
   font-weight: $button-font-weight;
   text-decoration: none;
+  text-transform: uppercase;
   line-height: 1;
   border: $button-border;
   border-radius: $button-border-radius;
@@ -20,6 +20,15 @@
       color: $button-primary-color-hover;
     }
   }
+  &[data-type="light"] {
+    background-color: $button-light-background;
+    color: $button-light-color;
+
+    &:is(:hover, :focus) {
+      background-color: $button-light-background-hover;
+      color: $button-light-color-hover;
+    }
+  }
 
   &[data-type="accent"] {
     background-color: $button-accent-background;
@@ -28,6 +37,46 @@
     &:is(:hover, :focus) {
       background-color: $button-accent-background-hover;
       color: $button-accent-color-hover;
+    }
+  }
+
+  &__user-account {
+    display: flex;
+    align-items: center;
+    padding: $size-1 $size-6;
+    border-radius: 50px;
+    border: 1px solid transparent;
+    background-color: transparent;
+    & div:first-child {
+      box-sizing: content-box;
+      border: 1px solid $color-primary-700;
+      width: 35px;
+      height: 35px;
+      border-radius: 250px;
+      background-color: beige;
+      margin-right: $size-8;
+    }
+    & span:nth-child(2) {
+      display: inline-block;
+      transform: rotate(0.5turn);
+      font-size: $font-size-600;
+      font-weight: $font-weight-bold;
+      transition: transform ease-in-out 250ms;
+    }
+    &:is(:hover, :focus-visible) {
+      border: 1px solid $color-primary-700;
+      background-color: $color-primary-500-darker-10;
+      & span:nth-child(2) {
+        color: $color-accent-orange-400;
+      }
+    }
+    &:is(:focus-visible) {
+      outline-color: $color-accent-orange-400;
+    }
+    &[aria-expanded="true"] {
+      & span:nth-child(2) {
+        transform: rotate(0);
+      }
     }
   }
 }

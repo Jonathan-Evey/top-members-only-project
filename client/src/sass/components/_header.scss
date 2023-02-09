@@ -1,0 +1,14 @@
+@use "../abstracts" as *;
+
+.header {
+    &__site {
+        color: $color-text-light-default;
+        background-color: $color-background-main-color;
+        & .header__container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-block: $size-6;
+        }
+    }
+}
