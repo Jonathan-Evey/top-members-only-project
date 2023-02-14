@@ -35,8 +35,10 @@ export const registerUser = (req, res, next) => {
 	const newUser = new User({
 		userName: req.body.username,
 		email: req.body.useremail,
+		profileImg: req.body.userImgNumber,
 		hash: hash,
 		salt: salt,
+		isDarkTheme: false,
 		isMember: false,
 		isAdmin: false,
 	});
@@ -75,6 +77,8 @@ export const loginUser = (req, res, next) => {
 				const userData = {
 					id: user._id,
 					name: user.userName,
+					isDarkTheme: user.isDarkTheme,
+					profileImg: user.profileImg,
 					isMember: user.isMember,
 				};
 				if (user.isAdmin) {
@@ -105,6 +109,8 @@ export const authUser = (req, res, next) => {
 				const userData = {
 					id: user._id,
 					name: user.userName,
+					isDarkTheme: user.isDarkTheme,
+					profileImg: user.profileImg,
 					isMember: user.isMember,
 				};
 				if (user.isAdmin) {
@@ -118,4 +124,26 @@ export const authUser = (req, res, next) => {
 			}
 		});
 	}
+};
+
+export const updateUserTheme = async (req, res, next) => {
+	const user = await User.findOneAndUpdate(
+		{ _id: req.body.id },
+		{ isDarkTheme: req.body.isDarkTheme }
+	)
+		.then(() => res.status(200).json({ message: 'Success' }))
+		.catch(() => {
+			res.status(404).json({ message: 'User not found' });
+		});
+};
+
+export const updateUserImg = async (req, res, next) => {
+	const user = await User.findOneAndUpdate(
+		{ _id: req.body.id },
+		{ profileImg: req.body.profileImg }
+	)
+		.then(() => res.status(200).json({ message: 'Success' }))
+		.catch(() => {
+			res.status(404).json({ message: 'User not found' });
+		});
 };

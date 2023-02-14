@@ -1,6 +1,7 @@
 import {
 	getUser,
-	getUserById,
+	updateUserTheme,
+	updateUserImg,
 	registerUser,
 	loginUser,
 	authUser,
@@ -21,8 +22,7 @@ userRoute.post('/login', loginUser);
 
 userRoute.get('/auth', authMiddleware, authUser);
 
-// to do
-// userRoute.post('/theme', updateUserTheme);
-// userRoute.post('/picture', updateUserPicture);
+userRoute.post('/theme', updateUserTheme);
+userRoute.post('/profile-img', updateUserImg);
 
 export default userRoute;

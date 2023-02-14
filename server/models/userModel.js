@@ -18,6 +18,10 @@ const userSchema = mongoose.Schema(
 			required: true,
 			unique: true,
 		},
+		profileImg: {
+			type: Number,
+			required: true,
+		},
 		hash: {
 			type: String,
 			required: true,
@@ -25,6 +29,10 @@ const userSchema = mongoose.Schema(
 		salt: {
 			type: String,
 			required: true,
+		},
+		isDarkTheme: {
+			type: Boolean,
+			default: false,
 		},
 		isMember: {
 			type: Boolean,
