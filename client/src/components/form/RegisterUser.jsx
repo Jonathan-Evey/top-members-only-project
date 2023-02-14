@@ -1,13 +1,15 @@
 import React from 'react'
 import axios from 'axios'
 
-export const RegisterUser = () => {
+export const RegisterUser = (props) => {
     const handelRegisterEvent = (e) => {
         e.preventDefault()
+        let userImgNumber = Math.floor(Math.random() * 12) + 1
         const formData = {
             username: username.value,
             useremail: useremail.value,
-            password: password.value
+            password: password.value,
+            userImgNumber: userImgNumber,
         }
         axios({
             url: "http://localhost:5000/api/users/register",
@@ -28,7 +30,9 @@ export const RegisterUser = () => {
         <input type="email" name="useremail" id="useremail" />
         <label htmlFor="password">Password:</label>
         <input type="password" name="password" id="password" />
-        <button type="submit" onClick={e => {handelRegisterEvent(e)}}></button>
+        <label htmlFor="confirm-password">Password:</label>
+        <input type="password" name="confirm-password" id="confirm-password" />
+        <button type="submit" onBlur={props.onBlurEvent} onClick={e => {handelRegisterEvent(e)}}></button>
     </form>
   )
 }
