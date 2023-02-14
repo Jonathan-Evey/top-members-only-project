@@ -30,7 +30,7 @@ export const LoginUser = (props) => {
         <input type="email" name="useremail" id="useremail" />
         <label htmlFor="password">Password:</label>
         <input type="password" name="password" id="password" />
-        <button className='button' type="submit" onClick={e => {handelLoginEvent(e)}}>Submit</button>
+        <button className='button' type="submit" onBlur={props.onBlurEvent} onClick={e => {handelLoginEvent(e)}}>Submit</button>
     </form>
   )
 }
