@@ -3,7 +3,7 @@ export const UserAccountNavBtn = (props) => {
     <button className="button__user-account" aria-expanded={props.isAccountNavOpen} onClick={() => {
         props.setIsAccountNavOpen(!props.isAccountNavOpen)
     }}>
-        <div>
+        <div className={`user-img-${props.user.profileImg}`}>
 
         </div>
         <span>^</span>
