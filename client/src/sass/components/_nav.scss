@@ -47,20 +47,30 @@
         transform-origin: center;
         transition: all ease-in-out 250ms;
         transform: scale(1) translateY(0);
-        background-color: $color-primary-500;
+        background-color: $color-primary-100-darker-05;
         border: 2px solid $color-primary-700;
         opacity: 1;
         border-radius: $border-radius-1;
         z-index: 1;
+        box-shadow: $box-shadow-2;
         &[aria-hidden="true"] {
             opacity: 0;
             transform: scale(0.75) translateY(-15%);
             pointer-events: none;
         }
+        &:has(div.dark-theme) {
+            background-color: $color-primary-500;
+        }
         & li {
             display: flex;
             text-align: center;
             border-bottom: 1px solid $color-primary-700;
+            &:first-child {
+                & a {
+                    border-top-right-radius: 5px;
+                    border-top-left-radius: 5px;
+                }
+            }
             &:nth-child(4) {
                 margin-top: $size-15;
                 border-bottom: none;
@@ -69,20 +79,63 @@
                 padding: $size-6 $size-8;
                 background-color: transparent;
                 border: none;
+                color: $color-primary-800;
+                &::after {
+                    background-color: $color-accent-orange-500;
+                }
                 &:is(:hover, :focus-visible) {
-                    background-color: $color-primary-700;
+                    background-color: $color-primary-200;
                 }
            
             }
             & a.link.underline {
                 padding: $size-6 $size-8;
-           
+                color: $color-primary-800;
+                &::after {
+                    background-color: $color-accent-orange-500;
+                }
+                &:is(:hover, :focus-visible) {
+                    background-color: $color-primary-200;
+                }
             }
             & button:not(.link.underline) {
                 margin: $size-6 $size-8;
+                &:is(:hover, :focus-visible) {
+                    background-color: $color-accent-orange-500;
+                }
             }
 
         }
 
     }
 }
+
+div.dark-theme {
+    & .nav__user-account {
+       background-color: $color-primary-500;
+       & button.link.underline {
+        color: $color-primary-100;
+        &::after {
+            background-color: $color-accent-orange-400;
+        }
+        &:is(:hover, :focus-visible) {
+            background-color: $color-primary-700;
+        }
+       }
+       & a.link.underline {
+        color: $color-primary-100;
+        &::after {
+            background-color: $color-accent-orange-400;
+        }
+        &:is(:hover, :focus-visible) {
+            background-color: $color-primary-700;
+        }
+       }
+       & .button {
+            background-color: $color-accent-orange-400;
+            &:is(:hover, :focus-visible) {
+                background-color: $color-accent-orange-500;
+            }
+       }
+    }
+ }

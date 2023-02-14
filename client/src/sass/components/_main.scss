@@ -1,0 +1,30 @@
+@use '../abstracts/' as *;
+
+.main {
+    &__profile {
+        & section {
+            background-color: $color-primary-200;
+            & .title {
+                padding: $size-2 $size-6;
+                font-size: $font-size-600;
+                font-family: $font-family-accent;
+                border-bottom: 2px solid $color-primary-100;
+            }
+        }
+    }
+}
+
+div.dark-theme {
+    .main {
+        &__profile {
+            & section {
+                
+                background-color: $color-primary-700;
+                & .title {
+
+                    border-bottom: 2px solid $color-primary-800;
+                }
+            }
+        }
+    }
+}

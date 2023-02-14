@@ -1,5 +1,15 @@
 @use "../abstracts/" as *;
 
+
+.flex {
+  display: flex;
+}
+
+.flex-end {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .flex-group {
   display: flex;
   flex-wrap: wrap;

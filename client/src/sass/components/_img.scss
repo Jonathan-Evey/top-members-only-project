@@ -1,0 +1,11 @@
+@use '../abstracts/' as *;
+
+.img {
+    &__profile-option {
+        width: 75px;
+        height: 75px;
+        border-radius: 250px;
+        background-position: center;
+        background-size: cover;
+    }
+}

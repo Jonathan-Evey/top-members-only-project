@@ -14,5 +14,90 @@
   &__heading {
     @include heading($card-heading-font-size, $card-heading-color-default)
   }
+  &__profile-img-option {
+    position: relative;
+
+    & button {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: $size-1 $size-9;
+      border-radius: 250px;
+      border: 3px solid $color-primary-200;
+      background-color: $color-primary-300;
+      &.selected {
+        background-color: $color-primary-200;
+        border-color: $color-accent-green-400;
+        & div:has(.check) {
+          border-color: $color-accent-green-400;
+        }
+        & .check {
+          background-color: $color-accent-green-400;
+          &:nth-child(2) {
+            transform: translateY(-50%) rotate(45deg) scale(1);
+          }
+          &:nth-child(3) {
+            transform: translateY(-50%) rotate(-45deg) scale(1);
+          }
+        }
+        
+      }
+    }
+    & input {
+      position: absolute;
+      z-index: -1;
+    }
+    & div:has(.check) {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      height: 25px;
+      width: 25px;
+      border: 2px solid $color-primary-800;
+      border-radius: $border-radius-1;
+    }
+    & .check {
+      background-color: $color-primary-800;
+      transition: all ease-in-out 250ms;
+      transform-origin: center;
+      &:nth-child(2) {
+        position: absolute;
+        top: calc(50% - 1px);
+        width: 100%;
+        height: 4px;
+        border-radius: 250px;
+        transform: translateY(-50%) rotate(45deg) scale(0);
+      }
+      &:nth-child(3) {
+        position: absolute;
+        top: calc(50% - 1px);
+        width: 100%;
+        height: 4px;
+        border-radius: 250px;
+        transform: translateY(-50%) rotate(-45deg) scale(0);
+      }
+    }
+  }
 }
 
+div.dark-theme {
+  & .card {
+    &__profile-img-option {
+      & button {
+        background-color: $color-primary-600;
+        border-color: $color-primary-700;
+        &.selected {
+          background-color: $color-primary-700;
+          border-color: $color-accent-orange-400;
+          & div:has(.check) {
+            border-color: $color-accent-orange-400;
+          }
+          & .check {
+            background-color: $color-accent-orange-400;
+          }
+        }
+      }
+    }
+  }
+}
