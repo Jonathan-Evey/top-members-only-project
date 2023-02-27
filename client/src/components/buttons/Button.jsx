@@ -2,8 +2,9 @@ export const Button = (props) => {
 
     if (props.btnStyle === "xButton") {
         return (
-            <button className={props.class}>
-                <span>hello</span><span>hello</span>
+            <button className={props.class} onClick={() => {props.clickEvent()}}>
+                <span></span>
+                <span></span>
             </button>
         )
     }
