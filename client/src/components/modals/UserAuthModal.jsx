@@ -8,17 +8,21 @@ export const UserAuthModal = (props) => {
             e.target.close()
         }
     }
-    
-    const onBlurEvent = () => {
+
+    const closeModal = () => {
       let modal = document.querySelector(".modal__user-auth") 
       modal.close()
     }
+    
   return (
-    <dialog className="modal__user-auth" onClick={(e) => {handleEvent(e)}}>
-        <Button btnStyle="xButton"   class="btn__close"/>
-        {props.modalForm === "login" ? 
-        <LoginUser onBlurEvent={onBlurEvent}/> :
-        <RegisterUser onBlurEvent={onBlurEvent} /> }
+    <dialog className="modal__user-auth"  onMouseDown={(e) => {handleEvent(e)}}>
+        <div>
+          <Button btnStyle="xButton" class="btn__close" clickEvent={closeModal}/>
+          <h2>{props.modalForm === "login" ? "Login" : "Create an Account" }</h2>
+          {props.modalForm === "login" ? 
+          <LoginUser /> :
+          <RegisterUser /> }
+        </div>
     </dialog>
   )
 }
