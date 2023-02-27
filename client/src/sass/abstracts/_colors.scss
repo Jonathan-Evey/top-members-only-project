@@ -21,6 +21,8 @@ $-clr-accent-tea-green: hsl(78, 43%, 79%);
 $-clr-accent-light-slate-gray: hsl(169, 13%, 51%);
 $-clr-accent-light-slate-gray-darkend-by-30: hsl(169, 12%, 36%);
 
+$-clr-error-message: rgb(167, 0, 0);
+
 
 $colors: (
   "neutral": (
@@ -67,3 +69,5 @@ $color-primary-500-darker-10: $-clr-main-500-10;
 $color-primary-600: var(--primary-600);
 $color-primary-700: var(--primary-700);
 $color-primary-800: var(--primary-800);
+
+$color-error-red: $-clr-error-message;
