@@ -84,6 +84,38 @@
 }
 
 .btn {
+  &__close {
+    position: absolute;
+    top: $size-2;
+    right: $size-2;
+    width: 25px;
+    height: 25px;
+    background-color: transparent;
+    border: none;
+    & span {
+      pointer-events: none;
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 3px;
+      width: 100%;
+      border-radius: $border-radius-1;
+      background-color: $color-primary-800;
+      &:nth-child(1) {
+        transform: translateY(-1px) rotate(45deg);
+      }
+      &:nth-child(2) {
+        transform: translateY(-1px) rotate(-45deg);
+      }
+    }
+    &:is(:hover, :focus) {
+      outline: 2px solid $color-accent-orange-400;
+      border-radius: 2px;
+      & span {
+        background-color: $color-accent-orange-400;
+      }
+    }
+  }
   &__profile-img-option {
     margin-inline: $size-4;
     margin-block-end: $size-4;
