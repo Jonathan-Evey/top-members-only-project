@@ -26,36 +26,58 @@ export const getUserById = asyncHandler(async (req, res) => {
 	}
 });
 
+const checkForUserName = (name) => {
+	let user = User.findOne({ userName: name });
+	if (user) {
+		return false;
+	} else {
+		return true;
+	}
+};
+
 export const registerUser = (req, res, next) => {
-	const saltHash = genPassword(req.body.password);
+	let isUserNameUnique = checkForUserName(req.body.username);
+	console.log(isUserNameUnique);
 
-	const salt = saltHash.salt;
-	const hash = saltHash.hash;
+	if (!isUserNameUnique) {
+		res.json({
+			success: false,
+			message: 'User name in use',
+		});
+	}
 
-	const newUser = new User({
-		userName: req.body.username,
-		email: req.body.useremail,
-		profileImg: req.body.userImgNumber,
-		hash: hash,
-		salt: salt,
-		isDarkTheme: false,
-		isMember: false,
-		isAdmin: false,
-	});
+	// const saltHash = genPassword(req.body.password);
 
-	newUser
-		.save()
-		.then((user) => {
-			const jwt = issueJWT(user);
+	// const salt = saltHash.salt;
+	// const hash = saltHash.hash;
 
-			res.json({
-				success: true,
-				user: user,
-				token: jwt.token,
-				expiresIn: jwt.expires,
-			});
-		})
-		.catch((error) => next(error));
+	// const newUser = new User({
+	// 	userName: req.body.username,
+	// 	email: req.body.useremail,
+	// 	profileImg: req.body.userImgNumber,
+	// 	hash: hash,
+	// 	salt: salt,
+	// 	isDarkTheme: false,
+	// 	isMember: false,
+	// 	isAdmin: false,
+	// });
+
+	// newUser
+	// 	.save()
+	// 	.then((user) => {
+	// 		const jwt = issueJWT(user);
+
+	// 		res.json({
+	// 			success: true,
+	// 			user: user,
+	// 			token: jwt.token,
+	// 			expiresIn: jwt.expires,
+	// 		});
+	// 	})
+	// 	.catch((error) => {
+	// 		console.log(error);
+	// 		next(error);
+	// 	});
 };
 
 export const loginUser = (req, res, next) => {
