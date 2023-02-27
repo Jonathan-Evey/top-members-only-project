@@ -1,24 +1,15 @@
 import { useContext } from "react"
 import { UserContext } from "../../components/context/User"
-import { logout } from "../../lib/utils"
+import { Hero } from "./Hero"
 
 export const HomePage = () => {
   const { user, setUser } = useContext(UserContext)
 
-  const userLogout = () => {
-      logout()
-      setUser(null)
-
-  }
     return (
-      <>
-        <div>Home{user ? `, welcome back ${user.name}!` : null}</div>
-
-        <button onClick={() => {
-        console.log(user)
-      }}>user</button>
+      <main id="main">
+        <Hero />
         
-      </>
+      </main>
 
     )
   }
