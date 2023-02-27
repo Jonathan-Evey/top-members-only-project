@@ -9,9 +9,9 @@ import { ErrorPage } from './pages/error/index'
 const Router = () => {
   return (
         <Routes>
-            <Route path='/' element={<HomePage />} />
-            <Route path='/about' element={<AboutPage />} />
-            <Route path='/contact' element={<ContactPage />} />
+            <Route path='/' element={<HomePage title={"The Accessible Collective"}/>} />
+            <Route path='/about' element={<AboutPage title={"Who we are | The Accessible Collective"}/>} />
+            <Route path='/contact' element={<ContactPage title={"Contact | The Accessible Collective"}/>} />
             <Route path='/articles/*' element={<ArticleRoutes />} />
             <Route path='/settings/*' element={<SettingRoutes />} />
             <Route path='*' element={<ErrorPage />} />
