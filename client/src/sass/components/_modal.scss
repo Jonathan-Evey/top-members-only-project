@@ -24,5 +24,82 @@
             background-color: hsl(337, 29%, 10%);
             opacity: 0.75;
         }
+
+        & div:has(form) {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            padding: $size-8;
+            min-width: 25vw;
+            & h2 {
+                position: relative;
+                font-family: $font-family-accent;
+                font-size: $font-size-600;
+                font-weight: $font-weight-bold;
+                color: $color-primary-800;
+                margin-block-end: $size-4;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    height: 3px;
+                    width: 55%;
+                    left: 0;
+                    bottom: 0;
+                    background-color: $color-primary-800;
+                }
+            }
+        }
+        & form {
+            margin: $size-6;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            
+            & div {
+                align-items: flex-end;
+                &:not(:first-child) {
+                    margin-block-start: $size-6;
+                }
+                &:has(p.error) {
+                    margin: 0;
+                    position: relative;
+                }
+            }
+            & span {
+                margin-inline-start: $size-2;
+            }
+            & p {
+              margin-inline-start: $size-2;
+              margin-block-end: 2px;
+              &.error {
+                position: absolute;
+                color: $color-error-red;
+              }
+            }
+            & label {
+                color: $color-primary-800;
+                font-family: $font-family-accent;
+                font-size: $font-size-500;
+                font-weight: $font-weight-bold;
+                text-transform: capitalize;
+            }
+            & input {
+                position: relative;
+                border: none;
+                border-bottom: 2px solid $color-primary-800;
+                border-radius: $border-radius-1;
+                background-color: $color-primary-200;
+                padding: $size-1 $size-2;
+
+                &.error {
+                    outline: 2px solid $color-error-red;
+                }
+            }
+            & button {
+                margin-block-start: $size-8;
+                margin-inline: auto;
+                width: fit-content;
+            }
+        }
     }
 }
