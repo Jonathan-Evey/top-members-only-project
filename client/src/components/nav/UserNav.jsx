@@ -4,35 +4,19 @@ import { UserAuthBtn } from "../buttons/UserAuthBtn"
 import { UserAccountNav } from  './UserAccountNav'
 import { UserAccountNavBtn } from "../buttons/UserAccountNavBtn"
 import { UserAuthModal } from "../modals/UserAuthModal"
+import { AuthModalContext } from "../context/AuthModal"
 
 export const UserNav = () => {
     const { user, setUser } = useContext(UserContext)
+    const { openRegisterModal, openLoginModal } = useContext(AuthModalContext)
     
     const [isAccountNavOpen, setIsAccountNavOpen] = useState(false)
-    const [modalForm, setModalForm] = useState("login")
 
     const removeClass = () => {
         setTimeout(() => {
             let userNav = document.querySelector(".nav__user-account")
             userNav.classList.remove("display-none")
         },250)
-    }
-
-    const openModal = () => {
-        let modal = document.querySelector(".modal__user-auth")
-        modal.classList.remove("open")
-        modal.showModal()
-        modal.classList.add("open")
-    }
-
-    const openLoginModal = () => {
-        setModalForm("login")
-        openModal()
-    }
-
-    const openRegisterModal = () => {
-        setModalForm("register")
-        openModal()
     }
 
     useEffect(() => {
@@ -58,7 +42,7 @@ export const UserNav = () => {
             <li>
                 <UserAuthBtn onClickEvent={openRegisterModal} dataType="accent" text="Sign Up"/>
             </li>
-            <UserAuthModal modalForm={modalForm}/>
+            <UserAuthModal />
                 </ul>) 
             : 
         <ul>    
