@@ -98,7 +98,7 @@ export const loginUser = (req, res, next) => {
 				const tokenObject = issueJWT(user);
 				const userData = {
 					id: user._id,
-					name: user.userName,
+					userName: user.userName,
 					isDarkTheme: user.isDarkTheme,
 					profileImg: user.profileImg,
 					isMember: user.isMember,
