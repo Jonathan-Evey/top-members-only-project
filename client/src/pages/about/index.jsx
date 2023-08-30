@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Main } from "./Main";
 
 export const AboutPage = (props) => {
 
@@ -6,6 +7,8 @@ export const AboutPage = (props) => {
     document.title = props.title || "";
   }, [props.title])
   return (
-    <div>About</div>
+    <>
+      <Main />
+    </>
   )
 }
