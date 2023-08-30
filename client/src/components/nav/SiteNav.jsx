@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 export const SiteNav = () => {
   return (
-      <nav className="nav__site">
+      <nav className="nav__site" aria-label="Main">
         <ul className="container">
           <li><Link className="link underline" to="/">Home</Link></li>
           <li><Link className="link underline" to="/articles">Articles</Link></li>
