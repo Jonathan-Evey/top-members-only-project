@@ -2,13 +2,36 @@
 
 .header {
     &__site {
-        color: $color-text-light-default;
+        color: $color-primary-100;
         background-color: $color-background-main-color;
         & .header__container {
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding-block: $size-6;
+            & .site-name {
+                margin-block: 0;
+                line-height: 0.75;
+                font-size: $font-size-700;
+            }
         }
+        & .center {
+            align-items: center;
+        }
+        & .logo {
+            max-width: 85px;
+        }
+        
+    }
+    &__home-section {
+
+        & h2 {
+            margin-block-end:$size-4;
+            font-family: $font-family-accent;
+            font-size: $font-size-700;
+            font-weight: $font-weight-bold;
+            border-bottom: 1px solid $color-background-default;
+        } 
+        
     }
 }

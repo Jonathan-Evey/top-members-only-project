@@ -1,10 +1,31 @@
 @use '../abstracts/' as *;
 
 .section {
+    &__home {
+        padding: calc($section-padding-block / 2);
+        background-color: $color-primary-100;
+
+        & article {
+            width: 75%;
+            margin-block-start: $size-10;
+            padding-inline: $size-6;
+
+            &:nth-child(odd) {
+                margin-left: auto;
+            }
+
+            & h3 {
+                font-size: $font-size-400;
+                font-weight: $font-weight-bold;
+                border-bottom: 1px solid $color-primary-200;
+            }
+        }
+    }
+
     &__profile-img-container {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: $size-4;;
-        padding: $size-4;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: $size-4;
+        padding: $size-4; 
     }
 }

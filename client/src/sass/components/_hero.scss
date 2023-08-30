@@ -1,0 +1,29 @@
+@use '../abstracts/' as *;
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    margin-block: $size-8 $size-14;
+    & div:nth-child(2) {
+        align-self: flex-end;
+        margin-block-start: $size-8;
+    }
+    & h1 {
+        padding-block: $size-8 $size-4;
+        font-family: $font-family-accent;
+        font-size: $font-size-800;
+        font-weight: $font-weight-bold;
+    }
+    & p {
+        margin-inline-start: $size-10;
+        font-size: $font-size-500;
+        max-width: 75ch;
+    }
+    & button:nth-child(2) {
+        margin-inline-start: $size-6;
+    }
+
+    @media (max-width: 800px) {
+        margin-block: $size-8 $size-10;
+    }
+}
