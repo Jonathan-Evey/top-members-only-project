@@ -130,7 +130,7 @@ export const authUser = (req, res, next) => {
 			if (user) {
 				const userData = {
 					id: user._id,
-					name: user.userName,
+					userName: user.userName,
 					isDarkTheme: user.isDarkTheme,
 					profileImg: user.profileImg,
 					isMember: user.isMember,
