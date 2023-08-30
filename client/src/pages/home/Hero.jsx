@@ -10,8 +10,9 @@ export const Hero = (props) => {
     return (
       <section className="hero | container section padding-inline-4" data-type="wide">
       <div>
-        <h1>Welcome to The Accessible Collective</h1>
-        <p>Whether you are a user of assistive tools and technologies, a Developer working towards making your applications more accessible, or just interested in web accessibility. This is a place to share and learn with others about accessibility on the web.</p>
+        <h1>Welcome to Panhandle Pruning!</h1>
+        <p> A site documenting my journey in planning, planting and maintaining my backyard garden in the Texas panhandle.</p>
+        <p className="padding-block-start-4">If you would like to be involved in the journey please feel free to create an account and join in on the conversations!</p>
       </div>
       <div className="flex">
         <UserAuthBtn onClickEvent={openRegisterModal} dataType="accent" text="Sign Up"/>
