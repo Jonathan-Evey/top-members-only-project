@@ -37,10 +37,10 @@ export const UserNav = () => {
         {!user ? (
         <ul className="flex-group">
             <li>
-                <UserAuthBtn onClickEvent={openLoginModal} dataType="light" text="Login"/>
+                <UserAuthBtn onClickEvent={openRegisterModal} dataType="accent" text="Sign Up"/>
             </li>
             <li>
-                <UserAuthBtn onClickEvent={openRegisterModal} dataType="accent" text="Sign Up"/>
+                <UserAuthBtn onClickEvent={openLoginModal} dataType="light" text="Login"/>
             </li>
             <UserAuthModal />
                 </ul>) 
