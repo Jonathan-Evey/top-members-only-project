@@ -26,7 +26,7 @@ export const getUserById = asyncHandler(async (req, res) => {
 	}
 });
 
-const checkForUserName = (name) => {
+const checkForUserName = async (name) => {
 	let user = User.findOne({ userName: name });
 	if (user) {
 		return false;
@@ -35,8 +35,11 @@ const checkForUserName = (name) => {
 	}
 };
 
-export const registerUser = (req, res, next) => {
-	let isUserNameUnique = checkForUserName(req.body.username);
+export const registerUser = async (req, res, next) => {
+	//this is asynchronous and needs to be updated
+	const isUserNameUnique = await checkForUserName(
+		req.body.username
+	);
 	console.log(isUserNameUnique);
 
 	if (!isUserNameUnique) {
@@ -86,7 +89,7 @@ export const loginUser = (req, res, next) => {
 			if (!user) {
 				return res.status(401).json({
 					success: false,
-					msg: 'could not find user',
+					msg: 'email or password error',
 				});
 			}
 			const isValid = validPassword(
@@ -115,7 +118,7 @@ export const loginUser = (req, res, next) => {
 			} else {
 				res.status(401).json({
 					success: false,
-					msg: 'you entered the wrong password',
+					msg: 'email or password error',
 				});
 			}
 		})
