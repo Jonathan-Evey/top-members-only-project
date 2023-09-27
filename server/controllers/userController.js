@@ -27,22 +27,21 @@ export const getUserById = asyncHandler(async (req, res) => {
 });
 
 const checkForUserName = async (name) => {
-	let user = User.findOne({ userName: name });
+	let user = await User.findOne({ userName: name });
+	console.log(user);
 	if (user) {
-		return false;
-	} else {
 		return true;
+	} else {
+		return false;
 	}
 };
 
 export const registerUser = async (req, res, next) => {
 	//this is asynchronous and needs to be updated
-	const isUserNameUnique = await checkForUserName(
-		req.body.username
-	);
-	console.log(isUserNameUnique);
+	const isUserNameInUse = await checkForUserName(req.body.username);
+	console.log(isUserNameInUse);
 
-	if (!isUserNameUnique) {
+	if (isUserNameInUse) {
 		res.json({
 			success: false,
 			message: 'User name in use',
